@@ -2,7 +2,7 @@
 // require("./utils.js");
 // require("./main.js");
 
-import {parse_args, load_page} from "./utils.js";
+//import {parse_args, load_page} from "./utils.js";
 
 // require("../js_scripts");
 
@@ -28,7 +28,6 @@ function parse_arg(arg){
     }
 
     return [name, val];
-
 }
 
 function parse_args(args){
@@ -40,8 +39,6 @@ function parse_args(args){
         parsed_args.concat([parse_arg(arg)]);
     })
     }catch (err){}
-
-
     return parsed_args;
 }
 
@@ -77,7 +74,7 @@ function load_page(url, timeout){
     var url = "https://www.amazon.com/s?i=arts-crafts-intl-ship&bbn=4954955011&rh=n%3A4954955011%2Cn%3A12896081%2Cn%3A12896121&dc&qid=1627957907&rnid=12896081";
     var timeout = 15;
 
-
+    console.log(args);
     var system = require('system');
     var args = system.args;
 
@@ -106,8 +103,6 @@ function load_page(url, timeout){
             }
 
         }catch (err){}});
-
-
 
     load_page(url, timeout);
 
