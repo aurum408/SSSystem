@@ -11,10 +11,13 @@ RUN apt update \
   && pip3 --no-cache-dir install --upgrade pip \
   && rm -rf /var/lib/apt/lists/*
 
-RUN cd / && wget ${PHANTOMJS_LINK} -O phantomjs.tar.bz2 \
+RUN cd /home && wget ${PHANTOMJS_LINK} -O phantomjs.tar.bz2 \
     && tar -xvf phantomjs.tar.bz2 \
-    && export PATH=${PATH}:/phantomjs/bin/phantomjs \
-    && alias phantomjs="$/phantomjs/bin/phantomjs" \
+    && export PATH=${PATH}:${PWD}/phantomjs/bin/phantomjs \
+    && alias phantomjs="${PWD}/phantomjs/bin/phantomjs" \
 
-RUN git clone ${PROJ_LINK}
+#RUN git clone ${PROJ_LINK} \
+#    && cd /SSSystem \
+#    && virtualenv venv && source venv/bin activate \
+#    && pip install -r -y requirements.txt
 
