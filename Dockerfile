@@ -14,11 +14,7 @@ RUN
     mkdir phantomjs && \
     tar -xvf phantomjs-2.1.1-linux-x86_64.tar.bz2 --directory phantomjs &&  \
     export PATH=${PATH}:/phantomjs/bin/phantomjs && \
-    alias phantomjs="${HOME}/phantomjs/bin/phantomjs"
+    alias phantomjs="$/phantomjs/bin/phantomjs"
 
-RUN apt update && \
-    apt install -y git && \
-    git clone https://github.com/aurum408/SSSystem.git
-
-
-#ENTRYPOINT ["python3"]
+RUN apt-get update && \
+    apt-get install -y git
