@@ -19,7 +19,7 @@ RUN cd /home && wget ${PHANTOMJS_LINK} -O phantomjs.tar.bz2 \
 
 RUN cd /home &&  git clone ${PROJ_LINK} \
     && cd SSSystem \
-    && pip install -r -y requirements.txt \
+    && pip install -r requirements.txt -y \
     && ln -s /home/SSSystem/src/load_page.js /home/load_page.js
 
 RUN cd /home && alias phantomjs="${PWD}/phantomjs/bin/phantomjs"
