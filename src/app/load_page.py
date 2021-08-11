@@ -2,6 +2,7 @@ import os, subprocess
 from subprocess import PIPE
 
 
+
 def load_page(url, timeout):
     pj = os.environ.get("PROJECT_DIR")
     cmd = "phantomjs ${}/js_scripts/load_page.js --url={} --timeout={}".format(pj, url, timeout)

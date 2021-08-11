@@ -12,12 +12,15 @@ RUN apt update \
   && rm -rf /var/lib/apt/lists/*
 
 RUN cd /home && wget ${PHANTOMJS_LINK} -O phantomjs.tar.bz2 \
-    && tar -xvf phantomjs.tar.bz2 \
+    && mkdir phantomjs \
+    && tar -xvf phantomjs.tar.bz2 -C phantomjs --strip-components=1 \
     && export PATH=${PATH}:${PWD}/phantomjs/bin/phantomjs \
-    && alias phantomjs="${PWD}/phantomjs/bin/phantomjs" \
+    && alias phantomjs="${PWD}/phantomjs/bin/phantomjs"
 
-#RUN git clone ${PROJ_LINK} \
-#    && cd /SSSystem \
-#    && virtualenv venv && source venv/bin activate \
-#    && pip install -r -y requirements.txt
+RUN cd /home &&  git clone ${PROJ_LINK} \
+    && cd SSSystem \
+    && virtualenv venv && source venv/bin activate \
+    && pip install -r -y requirements.txt \
+    && ln -s /home/SSSystem/src/load_page.js /home/load_page.js
 
+RUN cd /home && alias phantomjs="${PWD}/phantomjs/bin/phantomjs"
