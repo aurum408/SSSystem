@@ -19,7 +19,6 @@ RUN cd /home && wget ${PHANTOMJS_LINK} -O phantomjs.tar.bz2 \
 
 RUN cd /home &&  git clone ${PROJ_LINK} \
     && cd SSSystem \
-    && virtualenv venv && source venv/bin activate \
     && pip install -r -y requirements.txt \
     && ln -s /home/SSSystem/src/load_page.js /home/load_page.js
 
